@@ -4,6 +4,7 @@ const BidTableColum = [
   { "prop": 'productId', "label": 'Product Id', "minWidth": '130' },
   { "prop": 'quantity', "label": 'Quantity', "minWidth": '130' },
   { "prop": 'expireDate', "label": 'Expire Date', "minWidth": '130' },
+  { "prop": 'productCost', "label": 'Product Cost', "minWidth": '130' },
   { "prop": 'retailPrice', "label": 'Retail Price', "minWidth": '130' },
   { "prop": 'discFromRetail', "label": 'Discount (%)', "minWidth": '140' },
   { "prop": 'offerPrice', "label": 'Offer Price', "minWidth": '120' },

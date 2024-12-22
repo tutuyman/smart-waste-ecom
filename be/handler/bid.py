@@ -24,11 +24,6 @@ class ProductResponse(BaseModel):
     offer_price: Optional[int]
     discount: Optional[float]
 
-    class Config:
-        json_encoders = {
-            datetime: lambda v: v.strftime('%Y-%m-%d')  # Serialize datetime to ISO format
-        }
-
 class BidResponse(BaseModel):
     id: int
     product_id: str
@@ -38,6 +33,11 @@ class BidResponse(BaseModel):
     status: str
 
     product: Optional[ProductResponse]
+
+    class Config:
+        json_encoders = {
+            datetime: lambda v: v.strftime('%Y-%m-%d')  # Serialize datetime to ISO format
+        }
 
 @router.get("/api/bids", response_model=List[BidResponse])
 def get_bids(
@@ -101,8 +101,6 @@ def submit_bid(
 ):
     user_id = auth["user_id"]
     role = auth["role"]
-    
-    print(auth)
 
     session = get_db_session()
 
@@ -126,9 +124,6 @@ def accept_bid(
 ):
     user_id = auth["user_id"]
     role = auth["role"]
-    
-    print("amba")
-    print(auth)
 
     if role != "ADMIN":
         raise HTTPException(status_code=403, detail={"detail": "require admin role"})

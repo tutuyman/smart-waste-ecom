@@ -38,6 +38,7 @@ export default {
         "quantity": b.quantity,
         "bidPrice": b.offer_price,
         "expireDate": b.product.expiry_date,
+        "productCost": b.product.product_cost,
         "retailPrice": b.product.retail_price,
         "discFromRetail": b.product.discount,
         "offerPrice": b.product.offer_price,
